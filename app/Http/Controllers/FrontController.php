@@ -90,6 +90,9 @@ class FrontController extends Controller
     }
 
     public function pindahweblogin() {
-        return redirect()->away('https://labterpadu.unp.ac.id/console/');
+        return redirect()->away('https://siladu.unp.ac.id/console/login');
+    }
+    public function pindahwebregister() {
+        return redirect()->away('https://siladu.unp.ac.id/console/daftar');
     }
 }

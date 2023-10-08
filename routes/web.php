@@ -42,7 +42,8 @@ Route::get('download', [FrontController::class, 'halamandownload'])->name('front
 // menu alur pelayanan
 Route::get('alur', [FrontController::class, 'alur'])->name('front.alur');
 // pindah halaman
-Route::get('pindahlogin', [FrontController::class, 'pindahLogin'])->name('pindahweblogin');
+Route::get('pindahlogin', [FrontController::class, 'pindahweblogin'])->name('pindahweblogin');
+Route::get('pindahregister', [FrontController::class, 'pindahwebregister'])->name('pindahwebregister');
 
 Route::middleware('guest')->group(function(){
     // menu login
