@@ -32,11 +32,24 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
+                @forelse ($berita as $item)
                 <tr>
-                    <td>1</td>
-                    <td>ini sebuah judul</td>
-                    <td class="text-center"><span class="badge bg-label-success me-1">Published</span></td>
-                    <td class="text-center"><i class='bx bx-check-circle'></i></td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->judul }}</td>
+                    <td class="text-center">
+                        @if ($item->is_published)
+                        <span class="badge bg-label-success me-1">Published</span>
+                        @else
+                        <span class="badge bg-label-primary me-1">Draft</span>
+                        @endif
+                    </td>
+                    <td class="text-center">
+                        @if ($item->is_pinned)
+                        <i class='bx bx-check-circle'></i>
+                        @else
+                        <i class='bx bx-x-circle'></i>
+                        @endif
+                    </td>
                     <td>
                         <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -51,25 +64,11 @@
                         </div>
                     </td>
                 </tr>
+                @empty
                 <tr>
-                    <td>2</td>
-                    <td>ini sebuah judul kedua</td>
-                    <td class="text-center"><span class="badge bg-label-primary me-1">Drafted</span></td>
-                    <td class="text-center"><i class='bx bx-x-circle'></i></td>
-                    <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                    Edit</a>
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                    Delete</a>
-                            </div>
-                        </div>
-                    </td>
+                    <td colspan="5" class="bg-warning text-white">Data Masih Kosong</td>
                 </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
