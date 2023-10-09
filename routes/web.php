@@ -65,4 +65,8 @@ Route::middleware('auth')->group(function(){
     Route::post('kategori-berita/store', [KategoriBeritaController::class, 'store'])->name('admin.kategoriberita.store');
     // Berita - index
     Route::get('berita',[BeritaController::class, 'index'])->name('admin.berita');
+    // berita - create
+    Route::get('berita/create', [BeritaController::class, 'create'])->name('admin.berita.create');
+    // berita - store
+    Route::post('berita/store', [BeritaController::class, 'store'])->name('admin.berita.store');
 });

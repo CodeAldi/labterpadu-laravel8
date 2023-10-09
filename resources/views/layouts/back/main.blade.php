@@ -54,6 +54,8 @@ data-template="vertical-menu-template-free"
     <link rel="stylesheet" href="{{ asset('dashboard-assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <!-- Page CSS -->
+    {{-- quill editor --}}
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <!-- Helpers -->
     <script src="{{ asset('dashboard-assets/vendor/js/helpers.js') }}"></script>
@@ -61,6 +63,9 @@ data-template="vertical-menu-template-free"
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('dashboard-assets/js/config.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
   <body>
@@ -118,6 +123,8 @@ data-template="vertical-menu-template-free"
 
     <!-- Page JS -->
     <script src="{{ asset('dashboard-assets/js/ui-toasts.js') }}"></script>
+    {{-- quill editor --}}
+    @stack('pagejs')
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -24,7 +25,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = KategoriBerita::all();
+        return view('back.berita.create')->with('kategori',$kategori);
     }
 
     /**
@@ -35,7 +37,11 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $judul = $request->judul;
+        $kategori = $request->kategori;
+        $thumbnail = $request->file('thumbnail');
+        $editor = $request->about;
+        dd($judul, $kategori, $thumbnail, $editor);
     }
 
     /**

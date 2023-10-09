@@ -16,7 +16,7 @@
     <div class="card-header row">
         <h5 class="col-md-8">List Berita</h5>
         <div class="col-md-4">
-            <a href="{{ Route('admin.kategoriberita.create') }}" class="btn btn-primary float-end"><i
+            <a href="{{ Route('admin.berita.create') }}" class="btn btn-primary float-end"><i
                     class='menu-icon bx bxs-edit'></i>Tulis Berita Baru</a>
         </div>
     </div>
