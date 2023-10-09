@@ -20,8 +20,6 @@
                         @endif
                     </div>
                 </div>
-    
-                <input type="text" name="role" value="instruktur" readonly hidden>
                 <div class="row justify-content-end">
                     <div class="col-sm-10">
                         <a class="btn btn-secondary text-white" href="{{ route('admin.kategoriberita') }}">back</a>
