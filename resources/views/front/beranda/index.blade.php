@@ -147,11 +147,11 @@
                 <h2 class="fw-bold text-center text-decoration-underline" style="color: orangered;">Berita Pilihan
                 </h2>
                 <div class="row justify-content-around">
-                    @forelse ($beritas as $berita)
+                    @forelse ($berita_pinned as $berita)
                     <div class="col col-md-4 ">
                         <div class="card">
                             <h5 class="text-white position-absolute top-0 end-0 p-2" style="background-color: rgba(0, 0, 0, 0.31)">kategori</h5>
-                            <img src="{{ asset(''. $berita->gambar) }}" class="card-img-top object-fit-cover" alt="..."
+                            <img src="{{ 'storage/'.$berita->thumbnail }}" class="card-img-top object-fit-cover" alt="..."
                                 style="height: 12rem;" />
                             <div class="card-body">
                                 <h5 class="card-title">{{ $berita->judul }}</h5>

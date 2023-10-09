@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriBerita;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
@@ -41,7 +42,7 @@ class BeritaController extends Controller
     {
         $judul = $request->judul;
         $kategori = $request->kategori;
-        $thumbnail = $request->file('thumbnail')->store('news-thumbnail');
+        $thumbnail = $request->file('thumbnail')->store('news-thumbnail','public');
         $slug = Str::slug($judul);
         $isi = $request->content;
         $singkat = Str::limit(strip_tags($isi), 100, '...');
@@ -102,6 +103,9 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+        $thumbnail = $berita->thumbnail;
+        // Storage::disk('public')->delete($thumbnail);
+        $berita->delete();
+        return redirect()->route('admin.berita');
     }
 }

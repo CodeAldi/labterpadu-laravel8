@@ -58,7 +58,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                     Edit</a>
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                <a class="dropdown-item" href="{{ route('admin.berita.destroy',['berita'=>$item]) }}"><i class="bx bx-trash me-1"></i>
                                     Delete</a>
                             </div>
                         </div>

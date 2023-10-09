@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function index(){
         $title = 'Beranda';
-        $berita = [];
+        $beritapinned  = Berita::where('is_pinned',true)->where('is_published',true)->get();
+        $beritaterbaru = Berita::where('is_published',true)->take(5)->get();
+        // dd($beritapinned);
         return view('front.beranda.index')
-        ->with('beritas',$berita)
+        ->with('berita_pinned',$beritapinned)
+        ->with('berita_terbaru',$beritaterbaru)
         ->with('title', $title);
     }
     public function sejarah() {

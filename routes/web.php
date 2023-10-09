@@ -69,4 +69,6 @@ Route::middleware('auth')->group(function(){
     Route::get('berita/create', [BeritaController::class, 'create'])->name('admin.berita.create');
     // berita - store
     Route::post('berita/store', [BeritaController::class, 'store'])->name('admin.berita.store');
+    // berita - destroy
+    Route::get('berita/{berita}',[BeritaController::class, 'destroy'])->name('admin.berita.destroy');
 });

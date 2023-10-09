@@ -34,7 +34,7 @@
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $loop->iteration }}</strong></td>
                         <td>{{ $item->nama }}</td>
-                        <td class="text-center">0</td>
+                        <td class="text-center">{{ $jumlah[$item['id']] }}</td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
