@@ -27,7 +27,7 @@
                         <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="kategori">
                             <option selected>Open this select menu</option>
                             @forelse ($kategori as $item)
-                            <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
                             @empty
                             <option value="#" class="bg-warning text-white">Kategori Berita Masih Kosong</option>
                             @endforelse
@@ -42,9 +42,9 @@
                 </div>
                 
                 <div class="row-mb-3">
-                    <input type="hidden" name="about">
-                    <label for="" class="col-sm-2 col-form-label">Isi Berita</label>
-                    <div class="" id="editor">
+                    <label for="x" class="col-sm-2 col-form-label">Isi Berita</label>
+                    <input id="x" value="" type="hidden" name="content">
+                    <trix-editor input="x"></trix-editor>
                     </div>
                 </div>
                 <div class="row justify-content-end pt-2">
@@ -58,40 +58,9 @@
         </div>
     </div>
 
-@endsection
-
-@push('pagejs')
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
-        var toolbarOptions = [
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-            ['blockquote'],
-            [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }], // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }], // outdent/indent
-            [{ 'direction': 'rtl' }], // text direction
-        
-            
-            [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
-            [{ 'font': [] }],
-            [{ 'align': [] }],
-            
-            ['clean'] // remove formatting button
-        ];
-        var quill = new Quill('#editor', {
-            modules: {
-            toolbar: toolbarOptions
-            },
-            theme: 'snow'
-      });
-      
-      var form = document.querySelector('form');
-    form.onsubmit = function() {
-    // Populate hidden form on submit
-    var about = document.querySelector('input[name=about]');
-    about.value = JSON.stringify(quill.getContents());
-    }
+        document.addEventListner('trix-file-accept', function(e){
+            e.preventDefault();
+        })
     </script>
-@endpush
+@endsection

@@ -55,7 +55,13 @@ data-template="vertical-menu-template-free"
 
     <!-- Page CSS -->
     {{-- quill editor --}}
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"]{
+        display: none;
+      }
+    </style>
 
     <!-- Helpers -->
     <script src="{{ asset('dashboard-assets/vendor/js/helpers.js') }}"></script>
@@ -63,9 +69,6 @@ data-template="vertical-menu-template-free"
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('dashboard-assets/js/config.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
   <body>

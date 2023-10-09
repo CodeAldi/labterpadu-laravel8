@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use App\Models\KategoriBerita;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\KategoriBerita;
 
 class BeritaController extends Controller
 {
@@ -39,9 +40,23 @@ class BeritaController extends Controller
     {
         $judul = $request->judul;
         $kategori = $request->kategori;
-        $thumbnail = $request->file('thumbnail');
-        $editor = $request->about;
-        dd($judul, $kategori, $thumbnail, $editor);
+        $thumbnail = $request->file('thumbnail')->store('news-thumbnail');
+        $slug = Str::slug($judul);
+        $isi = $request->content;
+        $singkat = Str::limit(strip_tags($isi), 100, '...');
+
+        Berita::create([
+            'judul' => $judul,
+            'slug' => $slug,
+            'kategori_berita_id' => $kategori,
+            'singkat' =>$singkat,
+            'body' => $isi,
+            'thumbnail' => $thumbnail,
+            'is_published' => 1,
+            'is_pinned' => 1,
+        ]);
+
+        return redirect()->route('admin.berita');
     }
 
     /**
