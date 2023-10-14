@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KategoriBeritaController;
 
 /*
@@ -58,17 +59,19 @@ Route::middleware('auth')->group(function(){
     // Home
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.home');
     // Kategori berita - index
-    Route::get('kategori-berita',[KategoriBeritaController::class, 'index'])->name('admin.kategoriberita');
+    Route::get('kategori-berita/list',[KategoriBeritaController::class, 'index'])->name('admin.kategoriberita');
     // kategori berita - create
     Route::get('kategori-berita/create', [KategoriBeritaController::class, 'create'])->name('admin.kategoriberita.create');
     // kategori berita - store
     Route::post('kategori-berita/store', [KategoriBeritaController::class, 'store'])->name('admin.kategoriberita.store');
     // Berita - index
-    Route::get('berita',[BeritaController::class, 'index'])->name('admin.berita');
+    Route::get('berita/list',[BeritaController::class, 'index'])->name('admin.berita');
     // berita - create
     Route::get('berita/create', [BeritaController::class, 'create'])->name('admin.berita.create');
     // berita - store
     Route::post('berita/store', [BeritaController::class, 'store'])->name('admin.berita.store');
     // berita - destroy
     Route::get('berita/{berita}',[BeritaController::class, 'destroy'])->name('admin.berita.destroy');
+    // dokumen - index
+    Route::get('dokumen/list',[DokumenController::class, 'index'])->name('admin.dokumen');
 });

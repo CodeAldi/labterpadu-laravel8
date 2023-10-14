@@ -24,13 +24,13 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Berita</span>
         </li>
-        <li class="menu-item {{ (Route::currentRouteName() == 'admin.kategoriberita') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('kategori-berita/*') ? 'active' : '' }}">
             <a href="{{ route('admin.kategoriberita') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-ol"></i>
                 <div data-i18n="Analytics">Kategori Berita</div>
             </a>
         </li>
-        <li class="menu-item {{ (Route::currentRouteName() == 'admin.berita') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('berita/*') ? 'active' : '' }}">
             <a href="{{ route('admin.berita') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-library"></i>
                 <div data-i18n="Analytics">Berita</div>
@@ -45,8 +45,8 @@
                 <div data-i18n="Analytics">Gallery</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="{{ '#' }}" class="menu-link">
+        <li class="menu-item {{ Request::is('dokumen/*') ? 'active' : '' }}">
+            <a href="{{ route('admin.dokumen') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-folder"></i>
                 <div data-i18n="Analytics">File</div>
             </a>
