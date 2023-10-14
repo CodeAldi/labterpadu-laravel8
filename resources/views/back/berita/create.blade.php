@@ -47,7 +47,7 @@
                     <trix-editor input="x"></trix-editor>
                     </div>
                 </div>
-                <div class="row justify-content-end pt-2">
+                <div class="row justify-content-end py-4">
                     <div class="col-sm-4">
                         <a class="btn btn-secondary text-white" href="{{ route('admin.kategoriberita') }}">back</a>
                         <a class="btn btn-primary text white" href="#">Draft</a>

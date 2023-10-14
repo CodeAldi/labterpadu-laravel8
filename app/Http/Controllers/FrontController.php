@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -11,10 +12,12 @@ class FrontController extends Controller
         $title = 'Beranda';
         $beritapinned  = Berita::where('is_pinned',true)->where('is_published',true)->get();
         $beritaterbaru = Berita::where('is_published',true)->take(5)->get();
+        $kategoris = KategoriBerita::all();
         // dd($beritapinned);
         return view('front.beranda.index')
         ->with('berita_pinned',$beritapinned)
         ->with('berita_terbaru',$beritaterbaru)
+        ->with('kategoris',$kategoris)
         ->with('title', $title);
     }
     public function sejarah() {

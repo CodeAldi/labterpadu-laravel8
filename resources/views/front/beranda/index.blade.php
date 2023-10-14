@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <h2 style="color: orangered">SNI ISO/IEC 17025:2017</h2>
+                    <h2 style="color: #F2A007">SNI ISO/IEC 17025:2017</h2>
                 </div>
             </div>
             <div class="row">
@@ -64,12 +64,12 @@
     <!-- section news start -->
     <section id="beritadaninformasi" class="card rounded-5" style="top:45px;">
         <div class="container mt-2">
-            <h2 class="fw-bold text-decoration-underline" style="color: orangered;">Berita Dan Informasi <span
+            <h2 class="fw-bold text-decoration-underline" style="color: #F2A007;">Berita Dan Informasi <span
                     class="">Terkini</span></h2>
             <div class="container">
                 <div class="row">
                     <div class="col col-md-4">Informasi Terbaru</div>
-                    <div class="col col-md-4 ms-auto text-end"><a href="#" class="" style="color: orangered;">Lihat
+                    <div class="col col-md-4 ms-auto text-end"><a href="#" class="" style="color: #F2A007;">Lihat
                             Semua Berita</a></div>
                 </div>
             </div>
@@ -144,15 +144,23 @@
         </div>
         <div class="terkini bg-body-secondary">
             <div class="container py-md-4">
-                <h2 class="fw-bold text-center text-decoration-underline" style="color: orangered;">Berita Pilihan
+                <h2 class="fw-bold text-center text-decoration-underline" style="color: #F2A007;">Berita Pilihan
                 </h2>
                 <div class="row justify-content-around">
                     @forelse ($berita_pinned as $berita)
                     <div class="col col-md-4 ">
                         <div class="card">
-                            <h5 class="text-white position-absolute top-0 end-0 p-2" style="background-color: rgba(0, 0, 0, 0.31)">kategori</h5>
-                            <img src="{{ 'storage/'.$berita->thumbnail }}" class="card-img-top object-fit-cover" alt="..."
-                                style="height: 12rem;" />
+                            <div class="thumb position-relative">
+                                <p class="text-white position-absolute bottom-0 end-0 p-2 shadow-lg" style="background-color: #F2A007">
+                                @foreach ($kategoris as $item)
+                                    @if ($item->id == $berita->kategori_berita_id)
+                                        {{ $item->nama }}
+                                    @endif
+                                @endforeach
+                                </p>
+                                <img src="{{ 'storage/'.$berita->thumbnail }}" class="card-img-top object-fit-cover" alt="..."
+                                    style="height: 12rem;" />
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $berita->judul }}</h5>
                                 <p class="card-text">{{ $berita->singkat }}.</p>
