@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DokumenController extends Controller
 {
@@ -13,7 +15,9 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        return view('back.dokumen.index');
+        $dokumen = Dokumen::all();
+        return view('back.dokumen.index')
+        ->with('dokumen',$dokumen);
     }
 
     /**
@@ -34,7 +38,22 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'dokumen' => 'mimes:doc,docx,ppt,pdf|max:51200'
+        ]);
+        $judul = $validatedData['judul'];
+        $path  = $request->file('dokumen')->store('dokumen','public');
+        $extension = $request->file('dokumen')->extension();
+        $size = Storage::disk('public')->size($path);
+        // dd($path,$extension,$size);
+        $dokumen = new Dokumen;
+        $dokumen->judul = $judul;
+        $dokumen->path  = $path;
+        $dokumen->extension = $extension;
+        $dokumen->size  = $size;
+        $dokumen->save();
+        return redirect()->route('admin.dokumen');
     }
 
     /**
@@ -43,9 +62,10 @@ class DokumenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $data = Dokumen::find($request->id);
+        return response()->file(storage_path('app/public/'.$data->path));
     }
 
     /**
@@ -79,6 +99,10 @@ class DokumenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Dokumen::find($id);
+        $path = $data->path;
+        Storage::disk('public')->delete($path);
+        $data->delete();
+        return redirect()->route('admin.dokumen');
     }
 }

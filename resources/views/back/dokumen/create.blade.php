@@ -6,7 +6,7 @@
             <h5 class="mb-0">Upload Dokumen</h5>
         </div>
         <div class="card-body">
-            <form method="POST" action="#" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.dokumen.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Judul Dokumen</label>
@@ -25,7 +25,7 @@
                 <div class="row mb-3">
                     <label for="formFile" class="col-sm-2 col-form-label">Dokumen</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="file" id="formFile" name="thumbnail" />
+                        <input class="form-control" type="file" id="formFile" name="dokumen" />
                     </div>
                 </div>
         </div>

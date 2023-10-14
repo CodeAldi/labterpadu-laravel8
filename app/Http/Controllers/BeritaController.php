@@ -104,7 +104,7 @@ class BeritaController extends Controller
     public function destroy(Berita $berita)
     {
         $thumbnail = $berita->thumbnail;
-        // Storage::disk('public')->delete($thumbnail);
+        Storage::disk('public')->delete($thumbnail);
         $berita->delete();
         return redirect()->route('admin.berita');
     }

@@ -20,9 +20,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($dokumen as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->judul }}</td>
+                                <td class="text-center">
+                                    <form action="{{ route('admin.dokumen.show')}}" method="POST">
+                                        @csrf
+                                        <input type="text" name="id" value="{{ $item->id }}" hidden readonly>
+                                        <button class="btn">Open</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ route('admin.dokumen.destroy',['id'=>$item->id]) }}"><i
+                                                    class="bx bx-trash me-1"></i>
+                                                Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
                         <tr>
                             <td colspan="4" class="bg-warning text-white">Data Masih Kosong</td>
                         </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

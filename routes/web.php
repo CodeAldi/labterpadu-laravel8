@@ -76,4 +76,10 @@ Route::middleware('auth')->group(function(){
     Route::get('dokumen/list',[DokumenController::class, 'index'])->name('admin.dokumen');
     // dokumen - create
     Route::get('dokumen/create',[DokumenController::class, 'create'])->name('admin.dokumen.create');
+    // dokumen - store
+    Route::post('dokumen/store',[DokumenController::class, 'store'])->name('admin.dokumen.store');
+    // dokumen - show
+    Route::post('dokumen/show', [DokumenController::class, 'show'])->name('admin.dokumen.show');
+    // dokumen - destroy
+    Route::get('dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.dokumen.destroy');
 });
