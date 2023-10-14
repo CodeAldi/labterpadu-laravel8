@@ -74,4 +74,6 @@ Route::middleware('auth')->group(function(){
     Route::get('berita/{berita}',[BeritaController::class, 'destroy'])->name('admin.berita.destroy');
     // dokumen - index
     Route::get('dokumen/list',[DokumenController::class, 'index'])->name('admin.dokumen');
+    // dokumen - create
+    Route::get('dokumen/create',[DokumenController::class, 'create'])->name('admin.dokumen.create');
 });
