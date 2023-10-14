@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KategoriBeritaController;
 
 /*
@@ -82,4 +83,6 @@ Route::middleware('auth')->group(function(){
     Route::post('dokumen/show', [DokumenController::class, 'show'])->name('admin.dokumen.show');
     // dokumen - destroy
     Route::get('dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.dokumen.destroy');
+    // galeri - index
+    Route::get('galeri/list', [GaleriController::class, 'index'])->name('admin.galeri');
 });

@@ -12,7 +12,7 @@
     <div class="toast-body">{{ session('statusSusccess') }}</div>
 </div>
 @endif
-<div class="card">
+<div class="card h-100">
     <div class="card-header row">
         <h5 class="col-md-8">List Berita</h5>
         <div class="col-md-4">

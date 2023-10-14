@@ -1,7 +1,7 @@
 @extends('layouts.back.main')
 
 @section('content')
-    <div class="card">
+    <div class="card h-100">
         <div class="card-header row">
             <h5 class="col-md-8">List Dokumen</h5>
             <div class="col-md-4">

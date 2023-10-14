@@ -39,8 +39,8 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Galleries and files</span>
         </li>
-        <li class="menu-item">
-            <a href="{{ '#' }}" class="menu-link">
+        <li class="menu-item {{ Request::is('galeri/*') ? 'active' : '' }}">
+            <a href="{{ route('admin.galeri') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-images"></i>
                 <div data-i18n="Analytics">Gallery</div>
             </a>
