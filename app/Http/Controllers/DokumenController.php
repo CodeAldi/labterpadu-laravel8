@@ -40,7 +40,7 @@ class DokumenController extends Controller
     {
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
-            'dokumen' => 'mimes:doc,docx,ppt,pdf|max:51200'
+            'dokumen' => 'mimes:xls,xlsx,doc,docx,ppt,pptx,pdf|max:51200'
         ]);
         $judul = $validatedData['judul'];
         $path  = $request->file('dokumen')->store('dokumen','public');

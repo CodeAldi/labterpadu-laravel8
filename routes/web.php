@@ -39,8 +39,10 @@ Route::get('/tentang-kami/fasilitas', [FrontController::class, 'fasilitas'])->na
 Route::get('/tentang-kami/galeri', [FrontController::class, 'galeri'])->name('tentangKami.galeri');
 // menu hubungi kami
 Route::get('hubungi-kami', [FrontController::class, 'hubungikami'])->name('hubungiKami');
-// menu download
+// menu download - index
 Route::get('download', [FrontController::class, 'halamandownload'])->name('front.download');
+// menu download - proses download
+Route::get('download/{id}', [FrontController::class, 'prosesdownload'])->name('front.download.proses');
 // menu alur pelayanan
 Route::get('alur', [FrontController::class, 'alur'])->name('front.alur');
 // pindah halaman
