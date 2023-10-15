@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                     <p class="text-break isi"><br />Pusat pelayanan <br>UPT. laboratorium terpadu Universitas Negeri
                         Padang<br>
-                        menyediakan berbagai jenis layanan pengujian yang <br>telah terakredetasi dinasional dan
+                        menyediakan berbagai jenis layanan pengujian yang <br>telah terakredetasi nasional dan
                         internasional <br>dan diakui oleh komite akredetasi nasional</p>
                 </div>
             </div>
@@ -49,7 +49,10 @@
                 </div>
             </div>
         </div>
-        <div class="logo2 border rounded-5 shadow bg-white container">
+        
+    </section>
+    <section>
+        <div class="border rounded-5 shadow bg-white container">
             <div class="row">
                 <div class="col-sm-4"><img src="images/Logo-labdu.jpg" class="object-fit-contain" alt=""
                         style="width: 15rem; height: 5rem" /></div>
@@ -63,7 +66,7 @@
     <!-- section jumbotron end -->
     <!-- section news start -->
     <section id="beritadaninformasi" class="card rounded-5" style="top:45px;">
-        <div class="container mt-2">
+        <div class="container">
             <h2 class="fw-bold text-decoration-underline" style="color: #F2A007;">Berita Dan Informasi <span
                     class="">Terkini</span></h2>
             <div class="container">

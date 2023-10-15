@@ -53,14 +53,17 @@
             <hr>
             <div class="d-flex flex-column flex-sm-row justify-content-between">
                 <p>&copy; 2023 UPT. Laboratorium Terpadu, Universitas Negeri Padang. All rights reserved.</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fa-brands fa-facebook"></i></a>
+                <ul class="list-unstyled d-flex flex-sm-row">
+                    <li class="ms-3">Email : labterpadu@unp.ac.id</li>
+                    <li class="ms-3">CP 1 (Annisa) : 0822-8757-9638</li>
+                    <li class="ms-3">CP 2 (Febri) : 0853-56001235</li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/profile.php?id=100093953252930"><i class="fa-brands fa-facebook"></i></a>
                     </li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/laboratoriumterpadu_unp/?hl=en"><i class="fa-brands fa-instagram"></i></a>
                     </li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://x.com/LaborTerpaduUNP?s=20"><i class="fa-brands fa-twitter"></i></a>
                     </li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.tiktok.com/@laboratoriumterpaduunp"><i class="fa-brands fa-tiktok"></i></a>
                     </li>
                 </ul>
             </div>
