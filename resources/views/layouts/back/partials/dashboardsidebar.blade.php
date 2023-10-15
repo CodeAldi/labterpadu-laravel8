@@ -26,7 +26,7 @@
         </li>
         <li class="menu-item {{ Request::is('kategori-berita/*') ? 'active' : '' }}">
             <a href="{{ route('admin.kategoriberita') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-list-ol"></i>
+                <i class="menu-icon tf-icons bx bx-category"></i>
                 <div data-i18n="Analytics">Kategori Berita</div>
             </a>
         </li>
