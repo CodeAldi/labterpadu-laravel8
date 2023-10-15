@@ -1,9 +1,27 @@
 <nav class="navbar bg-primary">
     <div class="container-fluid">
-        <form class="d-flex ms-auto" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-success" type="submit">Search</button>
-        </form>
+        <a class="navbar-brand ms-5 text-white" href="https://www.unp.ac.id/">
+            <img src="{{ asset('images/LOGO UNIVERSITAS NEGERI PADANG.png') }}" height="55px" alt="">
+            Universitas Negeri Padang
+        </a>
+        <ul class="list-unstyled d-flex flex-sm-row text-white mt-3">
+            <li class="ms-3">Email : labterpadu@unp.ac.id</li>
+            <li class="ms-3">CP 1 (Annisa) : 0822-8757-9638</li>
+            <li class="ms-3">CP 2 (Febri) : 0853-56001235</li>
+            <li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/profile.php?id=100093953252930"><i
+                        class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/laboratoriumterpadu_unp/?hl=en"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="ms-3"><a class="link-body-emphasis" href="https://x.com/LaborTerpaduUNP?s=20"><i
+                        class="fa-brands fa-twitter"></i></a>
+            </li>
+            <li class="ms-3"><a class="link-body-emphasis" href="https://www.tiktok.com/@laboratoriumterpaduunp"><i
+                        class="fa-brands fa-tiktok"></i></a>
+            </li>
+        </ul>
+        
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg shadow bg-white sticky-top">
