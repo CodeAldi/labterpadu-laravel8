@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Galeri;
 use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 
@@ -77,8 +78,10 @@ class FrontController extends Controller
     }
     public function galeri() {
         $title = 'Galeri';
+        $galeris = Galeri::all();
         return view('front.tentangKami.galeri')
-        ->with('title',$title);
+        ->with('title',$title)
+        ->with('galeris',$galeris);
     }
     public function alur() {
         $title = 'Alur Pengujian';
