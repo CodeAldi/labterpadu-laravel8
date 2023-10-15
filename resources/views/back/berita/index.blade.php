@@ -12,6 +12,17 @@
     <div class="toast-body">{{ session('statusSusccess') }}</div>
 </div>
 @endif
+@if (session('status-delete-success'))
+<div class="bs-toast toast toast-placement-ex m-2 fade bg-danger top-0 end-0 show" role="alert" aria-live="assertive"
+    aria-atomic="true" data-delay="2000">
+    <div class="toast-header">
+        <i class="bx bx-trash me-2"></i>
+        <div class="me-auto fw-semibold">Sukses</div>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">{{ session('status-delete-success') }}</div>
+</div>
+@endif
 <div class="card h-100">
     <div class="card-header row">
         <h5 class="col-md-8">List Berita</h5>
@@ -20,7 +31,7 @@
                     class='menu-icon bx bxs-edit'></i>Tulis Berita Baru</a>
         </div>
     </div>
-    <div class="table-responsive text-nowrap">
+    <div class="table-responsive text-nowrap h-100">
         <table class="table">
             <thead>
                 <tr>
@@ -56,10 +67,13 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"><i class="bx bx-pin me-1"></i>
+                                @if ($item->is_pinned)
+                                <a class="dropdown-item" href="{{ route('admin.berita.unpinberita',['id'=>$item->id]) }}"><i class="bx bx-x-circle me-1"></i>
+                                    Unpin</a>
+                                @else
+                                <a class="dropdown-item" href="{{ route('admin.berita.pinberita',['id'=>$item->id]) }}"><i class="bx bx-pin me-1"></i>
                                     Pin</a>
-                                <a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i>
-                                    Edit</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('admin.berita.destroy',['berita'=>$item]) }}"><i class="bx bx-trash me-1"></i>
                                     Delete</a>
                             </div>

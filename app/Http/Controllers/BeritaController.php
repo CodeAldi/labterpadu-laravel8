@@ -55,11 +55,24 @@ class BeritaController extends Controller
             'body' => $isi,
             'thumbnail' => $thumbnail,
             'is_published' => 1,
-            'is_pinned' => 1,
         ]);
 
-        return redirect()->route('admin.berita');
+        return redirect()->route('admin.berita')->with('status-success','Berita berhasil ditulis');
     }
+
+    public function pinberita($id) {
+        $berita = Berita::find($id);
+        $berita->is_pinned = true;
+        $berita->save();
+        return redirect()->route('admin.berita')->with('status-success', 'Berita berhasil di pin');
+    }
+    public function unpinberita($id){
+        $berita = Berita::find($id);
+        $berita->is_pinned = false;
+        $berita->save();
+        return redirect()->route('admin.berita')->with('status-success', 'Berita berhasil di unpin'); 
+    }
+
 
     /**
      * Display the specified resource.
@@ -106,6 +119,6 @@ class BeritaController extends Controller
         $thumbnail = $berita->thumbnail;
         Storage::disk('public')->delete($thumbnail);
         $berita->delete();
-        return redirect()->route('admin.berita');
+        return redirect()->route('admin.berita')->with('status-delete-success','berita berhasil didelete');
     }
 }

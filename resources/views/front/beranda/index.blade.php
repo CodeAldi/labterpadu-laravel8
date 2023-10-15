@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
     <section>
         <div class="border rounded-5 shadow bg-white container">
@@ -68,26 +68,51 @@
     <section id="beritadaninformasi" class="card rounded-5" style="top:45px;">
         <div class="container">
             <h2 class="fw-bold text-decoration-underline" style="color: #F2A007;">Berita Dan Informasi <span
-                    class="">Terkini</span></h2>
+                    class="">Terbaru</span></h2>
             <div class="container">
                 <div class="row">
-                    <div class="col col-md-4">Informasi Terbaru</div>
-                    <div class="col col-md-4 ms-auto text-end"><a href="#" class="" style="color: #F2A007;">Lihat
+                    <div class="col col-md-4"></div>
+                    <div class="col col-md-4 ms-auto text-end"><a href="{{ route('front.berita.semua') }}" class="" style="color: #F2A007;">Lihat
                             Semua Berita</a></div>
                 </div>
             </div>
         </div>
         <div id="berita" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            @if ($berita_terbaru)
+                <div class="carousel-inner">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#berita" data-bs-slide-to="0" class="active border bg-black"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#berita" data-bs-slide-to="1" class="border"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#berita" data-bs-slide-to="2" class="border"
+                            aria-label="Slide 3"></button>
+                    </div>
+            @endif
+                @forelse ($berita_terbaru as $item)
+                <!-- carousel item 1 -->
+                <div class="carousel-item {{ $loop->index==0 ? 'active' : '' }}" data-bs-interval-500>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <img class="img-thumbnail object-fit-cover" src="{{ asset('storage/'.$item->thumbnail) }}" alt=""
+                                    style="height: 20rem; width:100%;" />
+                            </div>
+                            <div class="col">
+                                <h3>{{ $item->judul }}</h3>
+                                <p>{{ $item->singkat }} <a href="#">(baca lebih lanjut)</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end carousel item 1 -->
+                @empty
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#berita" data-bs-slide-to="0" class="active border bg-black"
                         aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#berita" data-bs-slide-to="1" class="border"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#berita" data-bs-slide-to="2" class="border"
-                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#berita" data-bs-slide-to="1" class="border" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#berita" data-bs-slide-to="2" class="border" aria-label="Slide 3"></button>
                 </div>
-                <!-- carousel item 1 -->
                 <div class="carousel-item active" data-bs-interval-500>
                     <div class="container">
                         <div class="row">
@@ -135,6 +160,7 @@
                     </div>
                 </div>
                 <!-- end carousel item 3 -->
+                @endforelse
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#berita" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
@@ -154,15 +180,16 @@
                     <div class="col col-md-4 ">
                         <div class="card">
                             <div class="thumb position-relative">
-                                <p class="text-white position-absolute bottom-0 end-0 p-2 shadow-lg" style="background-color: #F2A007">
-                                @foreach ($kategoris as $item)
+                                <p class="text-white position-absolute bottom-0 end-0 p-2 shadow-lg"
+                                    style="background-color: #F2A007">
+                                    @foreach ($kategoris as $item)
                                     @if ($item->id == $berita->kategori_berita_id)
-                                        {{ $item->nama }}
+                                    {{ $item->nama }}
                                     @endif
-                                @endforeach
+                                    @endforeach
                                 </p>
-                                <img src="{{ 'storage/'.$berita->thumbnail }}" class="card-img-top object-fit-cover" alt="..."
-                                    style="height: 12rem;" />
+                                <img src="{{ 'storage/'.$berita->thumbnail }}" class="card-img-top object-fit-cover"
+                                    alt="..." style="height: 12rem;" />
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $berita->judul }}</h5>
@@ -175,7 +202,8 @@
 
                     <div class="col col-md-4">
                         <div class="card">
-                            <h5 class="text-white position-absolute top-0 end-0 p-2" style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
+                            <h5 class="text-white position-absolute top-0 end-0 p-2"
+                                style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
                             <img src="images/carousel/slide 2.jpg" class="card-img-top object-fit-cover" alt="..."
                                 style="height: 12rem;" />
                             <div class="card-body">
@@ -188,7 +216,8 @@
                     </div>
                     <div class="col col-md-4">
                         <div class="card">
-                            <h5 class="text-white position-absolute top-0 end-0 p-2" style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
+                            <h5 class="text-white position-absolute top-0 end-0 p-2"
+                                style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
                             <img src="images/carousel/slide 2.jpg" class="card-img-top object-fit-cover" alt="..."
                                 style="height: 12rem;" />
                             <div class="card-body">
@@ -201,7 +230,8 @@
                     </div>
                     <div class="col col-md-4">
                         <div class="card">
-                            <h5 class="text-white position-absolute top-0 end-0 p-2" style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
+                            <h5 class="text-white position-absolute top-0 end-0 p-2"
+                                style="background-color: rgba(0, 0, 0, 0.31)">kategori-1</h5>
                             <img src="images/carousel/slide 3.jpg" class="card-img-top object-fit-cover" alt="..."
                                 style="height: 12rem;" />
                             <div class="card-body">

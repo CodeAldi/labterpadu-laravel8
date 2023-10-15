@@ -48,6 +48,9 @@ Route::get('alur', [FrontController::class, 'alur'])->name('front.alur');
 // pindah halaman
 Route::get('pindahlogin', [FrontController::class, 'pindahweblogin'])->name('pindahweblogin');
 Route::get('pindahregister', [FrontController::class, 'pindahwebregister'])->name('pindahwebregister');
+// menu berita
+Route::get('baca-berita/semua',[FrontController::class, 'lihatsemuaberita'])->name('front.berita.semua');
+
 
 Route::middleware('guest')->group(function(){
     // menu login
@@ -75,6 +78,10 @@ Route::middleware('auth')->group(function(){
     Route::post('berita/store', [BeritaController::class, 'store'])->name('admin.berita.store');
     // berita - destroy
     Route::get('berita/{berita}',[BeritaController::class, 'destroy'])->name('admin.berita.destroy');
+    // berita - pin
+    Route::get('berita/{id}/pin',[BeritaController::class, 'pinberita'])->name('admin.berita.pinberita');
+    // berita - unpin
+    Route::get('berita/{id}/unpin',[BeritaController::class, 'unpinberita'])->name('admin.berita.unpinberita');
     // dokumen - index
     Route::get('dokumen/list',[DokumenController::class, 'index'])->name('admin.dokumen');
     // dokumen - create

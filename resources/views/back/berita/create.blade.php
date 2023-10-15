@@ -50,7 +50,7 @@
                 <div class="row justify-content-end py-4">
                     <div class="col-sm-4">
                         <a class="btn btn-secondary text-white" href="{{ route('admin.kategoriberita') }}">back</a>
-                        <a class="btn btn-primary text white" href="#">Draft</a>
+                        {{-- <button type="button" id name="is_published" value="" class="btn btn-primary text white" href="#">Draft</button> --}}
                         <button type="submit" class="btn btn-success">Publish</button>
                     </div>
                 </div>
@@ -62,5 +62,6 @@
         document.addEventListner('trix-file-accept', function(e){
             e.preventDefault();
         })
+
     </script>
 @endsection

@@ -14,7 +14,7 @@ class FrontController extends Controller
     {
         $title = 'Beranda';
         $beritapinned  = Berita::where('is_pinned', true)->where('is_published', true)->get();
-        $beritaterbaru = Berita::where('is_published', true)->latest()->take(5)->get();
+        $beritaterbaru = Berita::where('is_published', true)->latest()->take(3)->get();
         $kategoris = KategoriBerita::all();
         // dd($beritapinned);
         return view('front.beranda.index')
@@ -23,6 +23,17 @@ class FrontController extends Controller
             ->with('kategoris', $kategoris)
             ->with('title', $title);
     }
+
+    public function lihatsemuaberita() {
+        $title = 'Berita';
+        $berita = Berita::all();
+        $kategoris = KategoriBerita::all();
+        return view('front.berita.semua')
+        ->with('title',$title)
+        ->with('berita',$berita)
+        ->with('kategoris',$kategoris);
+    }
+
     public function sejarah()
     {
         $title = 'Sejarah';
