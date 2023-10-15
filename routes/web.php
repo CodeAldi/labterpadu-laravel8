@@ -48,9 +48,10 @@ Route::get('alur', [FrontController::class, 'alur'])->name('front.alur');
 // pindah halaman
 Route::get('pindahlogin', [FrontController::class, 'pindahweblogin'])->name('pindahweblogin');
 Route::get('pindahregister', [FrontController::class, 'pindahwebregister'])->name('pindahwebregister');
-// menu berita
+// menu berita - semua
 Route::get('baca-berita/semua',[FrontController::class, 'lihatsemuaberita'])->name('front.berita.semua');
-
+// menu berita - baca
+Route::get('baca-berita/{slug}',[FrontController::class, 'bacaberita'])->name('front.berita.baca');
 
 Route::middleware('guest')->group(function(){
     // menu login

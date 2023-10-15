@@ -5,8 +5,11 @@
             <script>
                 document.write(new Date().getFullYear());
             </script>
-            , made with ❤️ by
+            Developed by
+            <a href="mailto:codealdi@gmail.com" class="footer-link fw-bolder">codealdi@gmail.com</a>
+            , Design with ❤️ by
             <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+         
         </div>
         <div>
             <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>

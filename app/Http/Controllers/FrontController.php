@@ -34,6 +34,17 @@ class FrontController extends Controller
         ->with('kategoris',$kategoris);
     }
 
+    public function bacaberita($slug){
+        $berita = Berita::where('slug',$slug)->get();
+        // dd($berita[0]->judul);
+        $title  = $berita[0]->judul;
+        $kategori = KategoriBerita::all();
+        return view('front.berita.baca')
+        ->with('title',$title)
+        ->with('berita',$berita[0])
+        ->with('kategoris',$kategori);
+    }
+
     public function sejarah()
     {
         $title = 'Sejarah';

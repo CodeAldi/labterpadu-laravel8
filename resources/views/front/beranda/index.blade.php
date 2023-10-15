@@ -100,7 +100,7 @@
                             </div>
                             <div class="col">
                                 <h3>{{ $item->judul }}</h3>
-                                <p>{{ $item->singkat }} <a href="#">(baca lebih lanjut)</a></p>
+                                <p>{{ $item->singkat }} <a href="{{ route('front.berita.baca',['slug'=>$item->slug]) }}">(baca lebih lanjut)</a></p>
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $berita->judul }}</h5>
                                 <p class="card-text">{{ $berita->singkat }}.</p>
-                                <a href="#" class="btn btn-primary">Baca Lebih Lanjut</a>
+                                <a href="{{ route('front.berita.baca',['slug'=>$berita->slug]) }}" class="btn btn-primary">Baca Lebih Lanjut</a>
                             </div>
                         </div>
                     </div>
