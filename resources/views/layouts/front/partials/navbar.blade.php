@@ -66,6 +66,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ (Request::routeIs('front.download'))? 'active bg-primary text-light rounded-pill fw-bold ': '' }}" href="{{ route('front.download') }}">Download</a>
                 </li>
+                <li class="nav-item bg-warning text-white rounded-pill shadow">
+                    <a href="#" class="nav-link">Siladu +</a>
+                </li>
             </ul>
         </div>
     </div>

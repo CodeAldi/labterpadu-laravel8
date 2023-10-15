@@ -85,4 +85,10 @@ Route::middleware('auth')->group(function(){
     Route::get('dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.dokumen.destroy');
     // galeri - index
     Route::get('galeri/list', [GaleriController::class, 'index'])->name('admin.galeri');
+    // galeri - create
+    Route::get('galeri/create', [GaleriController::class, 'create'])->name('admin.galeri.create');
+    // galeri - store
+    Route::post('galeri/store',[GaleriController::class, 'store'])->name('admin.galeri.store');
+    // galeri - destroy
+    Route::get('galeri/{id}/delete',[GaleriController::class, 'destroy'])->name('admin.galeri.destroy');
 });

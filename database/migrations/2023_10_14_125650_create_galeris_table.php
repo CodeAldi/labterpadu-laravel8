@@ -13,8 +13,11 @@ class CreateGalerisTable extends Migration
      */
     public function up()
     {
-        Schema::create('galeris', function (Blueprint $table) {
+        Schema::create('galeri', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('desc');
+            $table->string('path');
             $table->timestamps();
         });
     }
