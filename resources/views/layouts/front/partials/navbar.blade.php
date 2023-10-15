@@ -9,16 +9,16 @@
             <li class="ms-3">CP 1 (Annisa) : 0822-8757-9638</li>
             <li class="ms-3">CP 2 (Febri) : 0853-56001235</li>
             <li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/profile.php?id=100093953252930"><i
-                        class="fa-brands fa-facebook"></i></a>
+                        class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
             </li>
             <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/laboratoriumterpadu_unp/?hl=en"><i
-                        class="fa-brands fa-instagram"></i></a>
+                        class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
             </li>
             <li class="ms-3"><a class="link-body-emphasis" href="https://x.com/LaborTerpaduUNP?s=20"><i
-                        class="fa-brands fa-twitter"></i></a>
+                        class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
             </li>
             <li class="ms-3"><a class="link-body-emphasis" href="https://www.tiktok.com/@laboratoriumterpaduunp"><i
-                        class="fa-brands fa-tiktok"></i></a>
+                        class="fa-brands fa-tiktok" style="color: #ffffff;"></i></a>
             </li>
         </ul>
         

@@ -71,6 +71,8 @@ Route::middleware('auth')->group(function(){
     Route::get('kategori-berita/create', [KategoriBeritaController::class, 'create'])->name('admin.kategoriberita.create');
     // kategori berita - store
     Route::post('kategori-berita/store', [KategoriBeritaController::class, 'store'])->name('admin.kategoriberita.store');
+    // kategori berita - destroy
+    Route::get('kategori-berita/{id}/destory', [KategoriBeritaController::class, 'destroy'])->name('admin.kategoriberita.destroy');
     // Berita - index
     Route::get('berita/list',[BeritaController::class, 'index'])->name('admin.berita');
     // berita - create

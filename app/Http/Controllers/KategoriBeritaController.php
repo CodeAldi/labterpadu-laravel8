@@ -17,8 +17,13 @@ class KategoriBeritaController extends Controller
     public function index()
     {
         $kategori = KategoriBerita::all();
-        foreach ($kategori as $key => $value) {
-            $jumlah[$value['id']] = Berita::where('kategori_berita_id', $value['id'])->count();
+        if ($kategori->isNotEmpty()) {
+            foreach ($kategori as $key => $value) {
+                $jumlah[$value['id']] = Berita::where('kategori_berita_id', $value['id'])->count();
+            }
+        }
+        else{
+            $jumlah[0] = 0;
         }
         // dd($kategori,$jumlah);
         return view('back.kategoriberita.index')
@@ -91,14 +96,10 @@ class KategoriBeritaController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\KategoriBerita  $kategoriBerita
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(KategoriBerita $kategoriBerita)
+    public function destroy($id)
     {
-        //
+        $kategoriBerita = KategoriBerita::find($id);
+        $kategoriBerita->delete();
+        return redirect()->route('admin.kategoriberita')->with('status-delete-success','kategori berhasil didelete');
     }
 }

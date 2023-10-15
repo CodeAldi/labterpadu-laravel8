@@ -6,10 +6,21 @@
         aria-atomic="true" data-delay="2000">
         <div class="toast-header">
             <i class="bx bx-bell me-2"></i>
-            <div class="me-auto fw-semibold">{{ session('status-success') }}</div>
+            <div class="me-auto fw-semibold">Sukses</div>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="toast-body">{{ session('statusSusccess') }}</div>
+        <div class="toast-body">{{ session('status-success') }}</div>
+    </div>
+    @endif
+    @if (session('status-delete-success'))
+    <div class="bs-toast toast toast-placement-ex m-2 fade bg-danger top-0 end-0 show" role="alert" aria-live="assertive"
+        aria-atomic="true" data-delay="2000">
+        <div class="toast-header">
+            <i class="bx bx-trash me-2"></i>
+            <div class="me-auto fw-semibold">Sukses</div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">{{ session('status-delete-success') }}</div>
     </div>
     @endif
     <div class="card h-100">
@@ -41,9 +52,7 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                        Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                    <a class="dropdown-item" href="{{ route('admin.kategoriberita.destroy',['id'=>$item->id]) }}"><i class="bx bx-trash me-1"></i>
                                         Delete</a>
                                 </div>
                             </div>
