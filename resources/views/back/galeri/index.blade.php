@@ -51,7 +51,9 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->judul }}</td>
-                    <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                    <td>
+                        <img src="{{ asset('storage/'.$item->path) }}" alt="" width="75%">
+                    </td>
                     <td>
                         <a class="text-black" href="{{ route('admin.galeri.destroy',['id'=>$item->id]) }}"><i class="bx bx-trash me-2"></i>
                             Delete</a>
